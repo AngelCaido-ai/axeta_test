@@ -1,0 +1,238 @@
+@import "variables";
+@import "reset";
+
+body {
+  font: 400 16px/20px "Roboto", Arial, sans-serif;
+  color: var(--blackColor);
+  background-color: var(--whiteColor);
+}
+
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+  max-width: 1158px;
+
+  header & {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    @media (min-width: 768px) {
+      justify-content: space-between;
+      flex-direction: row-reverse;
+      align-items: flex-start;
+    }
+  }
+}
+
+h2.titleName {
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 500;
+  margin: 0 0 24px;
+  padding: 0;
+}
+
+p {
+  margin-bottom: 24px;
+}
+
+.button {
+  width: 16px;
+  height: 16px;
+  font-size: 10px;
+  line-height: 17px;
+  font-weight: 400;
+  color: var(--whiteColor);
+  cursor: pointer;
+  text-align: center;
+  border-radius: 50%;
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  margin-top: -8px;
+  border: none;
+  outline: none;
+
+  .userBoxInfoExperienceItem & {
+    top: 0;
+    right: -8px;
+  }
+
+  &Success {
+    background-color: var(--successColor);
+  }
+
+  &Delete {
+    background-color: var(--linkColorHover);
+  }
+
+  &Avatar {
+    background: url("../img/addFile.svg") no-repeat scroll 50% 50% var(--linkColorHover);
+    background-size: 18px auto;
+    width: 32px;
+    height: 32px;
+    right: 10px;
+    top: 10px;
+
+    input {
+      display: none;
+    }
+  }
+}
+
+
+.dottedText {
+  color: var(--linkColor);
+  border-bottom: 1px dotted var(--linkColor);
+  cursor: pointer;
+  margin-left: 8px;
+
+  &:hover {
+    color: var(--linkColorHover);
+    border-bottom: none;
+  }
+}
+
+.inputBox {
+  position: relative;
+  background-color: var(--inputColor);
+  padding: 0;
+
+  .listText & {
+    display: inline-block;
+    margin-left: 8px;
+    max-width: 80px;
+  }
+
+  input {
+    width: 100%;
+    background-color: transparent;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: 1px solid var(--blackColor);
+    font-size: 16px;
+    line-height: 23px;
+    color: var(--blackColor);
+    padding: 0 27px 0 0;
+
+    &.experienceItem {
+      padding: 0;
+    }
+
+
+    &.error {
+      border-color: var(--linkColorHover);
+    }
+  }
+
+  .errorText {
+    font-size: 11px;
+    line-height: 14px;
+    font-weight: 400;
+    position: absolute;
+    color: var(--errorColor);
+    margin-left: 8px;
+    right: 0;
+    top: 100%;
+    white-space: nowrap;
+    @media (min-width: 768px) {
+      margin-left: 8px;
+      right: auto;
+      left: 100%;
+      top: 50%;
+      margin-top: -12px;
+      font-size: 14px;
+      line-height: 24px;
+    }
+  }
+}
+
+header {
+  padding: 16px 0;
+  background-color: var(--headerBcgColor);
+  margin-bottom: 56px;
+  position: relative;
+  @media (min-width: 768px) {
+    padding: 40px 0 16px;
+  }
+}
+
+.userBox {
+  display: flex;
+  width: 100%;
+}
+
+.boxList {
+  margin-bottom: 22px;
+  @media (min-width: 520px) {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  &Item {
+    box-sizing: border-box;
+    margin-bottom: 30px;
+    @media (min-width: 520px) {
+      width: 50%;
+      padding-right: 20px;
+      line-height: 24px;
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+    @media (min-width: 920px) {
+      width: 25%;
+    }
+  }
+}
+
+.listText {
+  margin: 0 0 20px;
+  padding: 0;
+
+  li {
+    position: relative;
+    padding: 0 0 0 20px;
+    margin: 0 0 8px;
+
+    &::before {
+      content: '\2013';
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+}
+
+.quote {
+  text-align: center;
+  position: relative;
+  padding: 18px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 32px;
+    left: 0;
+    top: 0;
+    background: url("../img/quoteTop.svg") no-repeat scroll 50% 50% transparent;
+    background-size: contain;
+    z-index: -1;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 32px;
+    right: 0;
+    bottom: 0;
+    background: url("../img/quoteTop.svg") no-repeat scroll 50% 50% transparent;
+    background-size: contain;
+    z-index: -1;
+  }
+}

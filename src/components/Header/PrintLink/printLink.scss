@@ -1,0 +1,24 @@
+.linkPrint {
+  color: var(--linkColor);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  margin-bottom: 15px;
+  flex: none;
+
+  svg {
+    fill: var(--greyColor);
+    display: block;
+    margin-right: 8px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    color: var(--linkColorHover);
+
+    svg {
+      fill: var(--linkColorHover);
+    }
+  }
+}

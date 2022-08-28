@@ -1,0 +1,21 @@
+.boxList {
+  &Item {
+    &Map {
+      @media (min-width: 520px) {
+        width: 100%;
+      }
+      @media (min-width: 920px) {
+        width: 50%;
+      }
+
+      & > div {
+        width: 100% !important;
+        border-radius: 6px;
+
+        & > ymaps {
+          width: 100% !important;
+        }
+      }
+    }
+  }
+}
