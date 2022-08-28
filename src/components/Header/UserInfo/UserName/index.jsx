@@ -15,8 +15,6 @@ const UserName = ({userName, editUserName}) => {
     }
   }
 
-  console.log(`UserName ${userName}`)
-
   return (
     <div className="userBoxInfoName">
       {

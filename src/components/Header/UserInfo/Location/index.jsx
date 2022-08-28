@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useInput} from "../../../../hooks/useInput";
 import {connect} from "react-redux";
 import {editUserLocation} from "../../../../store/user/userActrionCreator";
@@ -9,15 +9,18 @@ import './location.scss'
 const Location = ({userLocation, editUserLocation}) => {
 
 
-  const [value, onInput, isEditing, setIsEditing, isError, clearValue] = useInput({inputString: userLocation})
+  const [value, onInput, isEditing, setIsEditing, isError, clearValue, setValue] = useInput({inputString: userLocation})
 
   const onKeyDown = (event) => {
     if (event.key === 'Enter' || event.type === 'blur' && !isError) {
       editUserLocation(value)
       setIsEditing(false)
-      clearValue()
     }
   }
+
+  useEffect(() => {
+    setValue(userLocation)
+  }, [userLocation])
 
   return (
     <div className="userBoxInfoResidency">

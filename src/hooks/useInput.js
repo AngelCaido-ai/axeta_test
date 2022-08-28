@@ -9,7 +9,7 @@ export const useInput = ({inputString = ""}) => {
     if (value === "") {
       setIsError(true)
     }
-  })
+  }, [value])
 
   const clearValue = () => {
     setValue('')
@@ -28,5 +28,5 @@ export const useInput = ({inputString = ""}) => {
     setValue(inputValue)
   }
 
-  return [value, onInput, isEditing, setIsEditing, isError, clearValue]
+  return [value, onInput, isEditing, setIsEditing, isError, clearValue, setValue]
 }

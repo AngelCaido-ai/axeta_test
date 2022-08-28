@@ -10,7 +10,6 @@ const ExperienceList = ({experienceList, deleteFromUserExperience, pushToUserExp
   const [value, onInput, isEditing, setIsEditing, isError, clearValue] = useInput({})
 
   const onKeyDown = (e) => {
-    console.log("onKeyDown", e)
     if((e.key === 'Enter' || e.type === 'blur') && !isError) {
       const newUserExperience = {
         id: Date.now(),

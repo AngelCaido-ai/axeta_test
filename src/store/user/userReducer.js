@@ -23,7 +23,6 @@ export const userReducer = (state = initialState, action) => {
         newState.location = action.payload
       }
       else if(action.type === 'CHANGE_USER_EXPERIENCE'){
-        console.log("payload",action.payload)
         newState.experience = action.payload
       }
   })
