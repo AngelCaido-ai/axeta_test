@@ -1,19 +1,30 @@
 import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import {userReducer} from "./user/userReducer";
 import thunk from "redux-thunk";
+import storage from "redux-persist/lib/storage";
+import {persistReducer, persistStore} from "redux-persist";
 
-
-const rootReducerCreator = () => {
-  return combineReducers({
-    user: userReducer
-  });
+const persistConfig = {
+  key: "axeta",
+  storage
 }
+
+
+const rootReducer = combineReducers({
+  user: userReducer
+});
+
+
+const persistedReducer = () => {
+  return persistReducer(persistConfig, rootReducer)
+}
+
 
 let storeCreator
 
-if(window && window?.__REDUX_DEVTOOLS_EXTENSION__) {
-  storeCreator =  createStore(
-    rootReducerCreator(),
+if (window && window?.__REDUX_DEVTOOLS_EXTENSION__) {
+  storeCreator = createStore(
+    persistedReducer(),
     compose(
       applyMiddleware(
         thunk
@@ -22,10 +33,9 @@ if(window && window?.__REDUX_DEVTOOLS_EXTENSION__) {
       window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__({trace: true, traceLimit: 20})
     )
   );
-}
-else {
+} else {
   storeCreator = createStore(
-    rootReducerCreator(),
+    persistReducer(),
     compose(
       applyMiddleware(
         thunk
@@ -35,3 +45,5 @@ else {
 }
 
 export const store = storeCreator;
+
+export const persistor = persistStore(store)
