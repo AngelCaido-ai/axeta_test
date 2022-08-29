@@ -1,10 +1,16 @@
 import React, {useEffect} from 'react';
+import {connect} from "react-redux";
+import classNames from "classnames";
+
 import {useInput} from "../../../../hooks/useInput";
 import {connect} from "react-redux";
 import {editUserLocation} from "../../../../store/user/userActrionCreator";
-import classNames from "classnames";
+
+import IconError from "../../../../views/Icons/IconError";
+import IconSuccess from "../../../../views/Icons/IconSuccess";
 
 import './location.scss'
+
 
 const Location = ({userLocation, editUserLocation}) => {
 
@@ -39,11 +45,11 @@ const Location = ({userLocation, editUserLocation}) => {
             onBlur={onKeyDown}
             autoFocus
           />
-          <div className="button buttonSuccess">&#10004;</div>
+          <IconSuccess/>
           {
             isError && (
               <>
-                <div className="button buttonDelete">&#10006;</div>
+                <IconError/>
                 <div className="errorText">Error Description</div>
               </>
             )

@@ -2,6 +2,9 @@ import {useInput} from "../../../../hooks/useInput";
 import {connect} from "react-redux";
 import {deleteFromUserExperience, pushToUserExperience} from "../../../../store/user/userActrionCreator";
 import classNames from "classnames";
+import IconSuccess from "../../../../views/Icons/IconSuccess";
+import IconError from "../../../../views/Icons/IconError";
+
 import './experienceList.scss'
 
 
@@ -49,8 +52,8 @@ const ExperienceList = ({experienceList, deleteFromUserExperience, pushToUserExp
             onBlur={onKeyDown}
             autoFocus
           />
-          <div className="button buttonSuccess">&#10004;</div>
-          {isError && <div className="button buttonDelete">&#10006;</div>}
+          <IconSuccess/>
+          {isError && <IconError />}
         </div>
       }
     </div>

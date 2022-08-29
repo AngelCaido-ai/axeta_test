@@ -1,5 +1,6 @@
 import {YMaps, Map, Placemark} from "react-yandex-maps";
 import {connect} from "react-redux";
+
 import './yandexMap.scss'
 
 const YandexMap = ({...props}) => {
