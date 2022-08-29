@@ -1,12 +1,18 @@
+import axios from "axios";
 import {store} from "../index";
 import {userActionList} from "./userActionList";
-import axios from "axios";
 import {CityAPI} from "../../consts/City_API";
 
 
 export const editUserName = (name) => {
   return dispatch => {
       dispatch({type: userActionList.EDIT_USER_NAME, payload: name})
+  }
+}
+
+export const changeUserAvatar = (name) => {
+  return dispatch => {
+      dispatch({type: userActionList.CHANGE_USER_AVATAR, payload: name})
   }
 }
 

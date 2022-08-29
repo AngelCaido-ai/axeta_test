@@ -34,3 +34,18 @@
     }
   }
 }
+
+.button {
+  &Avatar {
+    background: url("../../../../img/addFile.svg") no-repeat scroll 50% 50% var(--linkColor);
+    background-size: 18px auto;
+    width: 32px;
+    height: 32px;
+    right: 10px;
+    top: 10px;
+
+    input {
+      display: none;
+    }
+  }
+}
