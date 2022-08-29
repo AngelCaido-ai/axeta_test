@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {RegExpValidationString} from "../utils/RegExpValidation";
 
-export const useInput = ({inputString = "", type =  "string"}) => {
+export const useInput = ({inputString = ""}) => {
   const [value, setValue] = useState(inputString)
   const [isError, setIsError] = useState(false)
   const [isEditing, setIsEditing] = useState(false)
