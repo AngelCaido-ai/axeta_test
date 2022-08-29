@@ -1,5 +1,6 @@
 import React, { useState} from 'react';
 import {userPic} from "../../../../img";
+
 import './avatar.scss'
 
 const Avatar = () => {

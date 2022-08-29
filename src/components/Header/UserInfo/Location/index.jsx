@@ -3,7 +3,6 @@ import {connect} from "react-redux";
 import classNames from "classnames";
 
 import {useInput} from "../../../../hooks/useInput";
-import {connect} from "react-redux";
 import {editUserLocation} from "../../../../store/user/userActrionCreator";
 
 import IconError from "../../../../views/Icons/IconError";

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useReactToPrint } from "react-to-print";
+
 import './printLink.scss'
 
 const PrintLink = ({pageRef}) => {
