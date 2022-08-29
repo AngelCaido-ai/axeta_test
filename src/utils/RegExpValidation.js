@@ -1,4 +1,4 @@
-export const RegExpValidationString = (inputValue, setIsError) => {
+export const RegExpValidationString = (inputValue) => {
 
   const format = /[!@#$%^&*()_+\-=\[\]{};':"\\|.<>\/?]+/;
 
