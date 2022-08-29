@@ -35,12 +35,14 @@ export const editUserLocation = (locationName = "") => {
 export const pushToUserExperience = (experienceItem) => {
   return dispatch => {
       const experienceList = JSON.parse(JSON.stringify(store.getState().user.experience))
+      const isDuplicate = experienceList.find(item => item.name.toLowerCase() === experienceItem.name.toLowerCase())
+      if(!isDuplicate){
+        experienceList.push(experienceItem)
 
-      experienceList.push(experienceItem)
+        const sortedList = experienceList.sort((a, b) => b.years - a.years);
 
-      const sortedList = experienceList.sort((a, b) => b.years - a.years);
-
-      dispatch({type: userActionList.CHANGE_USER_EXPERIENCE, payload: sortedList})
+        dispatch({type: userActionList.CHANGE_USER_EXPERIENCE, payload: sortedList})
+      }
     }
 }
 
