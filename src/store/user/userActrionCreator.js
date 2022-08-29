@@ -1,9 +1,8 @@
 import {store} from "../index";
 import {userActionList} from "./userActionList";
 import axios from "axios";
+import {CityAPI} from "../../consts/City_API";
 
-const API_URL = 'http://api.openweathermap.org'
-const API_KEY = '080e6c06564aff3e6cbca90d31f5e6ca'
 
 export const editUserName = (name) => {
   return dispatch => {
@@ -14,7 +13,7 @@ export const editUserName = (name) => {
 export const editUserLocation = (locationName = "") => {
   return async dispatch => {
     try{
-      const req = await axios.get(`${API_URL}/geo/1.0/direct?q=${locationName}&limit=1&appid=${API_KEY}`)
+      const req = await axios.get(`${CityAPI.URL}/geo/1.0/direct?q=${locationName}&limit=1&appid=${CityAPI.KEY}`)
 
       const response = req.data[0]
 
