@@ -1,4 +1,5 @@
 import produce from "immer";
+import {userActionList} from "./userActionList";
 
 const initialState = {
   name: 'John Smith',
@@ -16,13 +17,13 @@ const initialState = {
 
 export const userReducer = (state = initialState, action) => {
   return produce(state, newState => {
-      if(action.type === 'EDIT_USER_NAME') {
+      if(action.type === userActionList.EDIT_USER_NAME) {
         newState.name = action.payload
       }
-      else if(action.type === 'EDIT_USER_LOCATION'){
+      else if(action.type === userActionList.EDIT_USER_LOCATION){
         newState.location = action.payload
       }
-      else if(action.type === 'CHANGE_USER_EXPERIENCE'){
+      else if(action.type === userActionList.CHANGE_USER_EXPERIENCE){
         newState.experience = action.payload
       }
   })
