@@ -117,11 +117,6 @@ p {
     color: var(--blackColor);
     padding: 0 27px 0 0;
 
-    &.experienceItem {
-      padding: 0;
-    }
-
-
     &.error {
       border-color: var(--linkColorHover);
     }

@@ -1,6 +1,8 @@
 import React from 'react';
 import {useInput} from "../../../../hooks/useInput";
 
+import './experienceItem.scss'
+
 const ExperienceItem = ({item, editUserExperienceYears}) => {
 
   const {id, name, years} = item;
