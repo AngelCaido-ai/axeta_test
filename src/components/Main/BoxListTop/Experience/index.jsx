@@ -3,12 +3,6 @@ import ExperienceItem from "./ExperienceItem";
 import {connect} from "react-redux";
 import {editUserExperienceYears} from "../../../../store/user/userActrionCreator";
 
-const arr = [
-  {id: 1, name: 'PHP', years: 6},
-  {id: 2, name: 'Ruby', years: 2},
-  {id: 3, name: 'JavaScript', years: 4.5},
-]
-
 const Experience = ({experienceList, editUserExperienceYears}) => {
 
   return (
