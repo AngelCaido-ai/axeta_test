@@ -7,11 +7,16 @@ const ExperienceItem = ({item, editUserExperienceYears}) => {
 
   const {id, name, years} = item;
 
-  const [value, onInput, isEditing, setIsEditing] = useInput({inputString: years})
+  const [value, onInput, isEditing, setIsEditing, isError, clearValue, setValue] = useInput({inputString: years})
 
-  const editExperienceYear = (event) => {
-    if (event.key === 'Enter' || event.type === 'blur') {
-      editUserExperienceYears(id, value)
+  const editExperienceYear = (e) => {
+    if (e.key === 'Enter' || e.type === 'blur') {
+      if(value !== ""){
+        editUserExperienceYears(id, value)
+      } else {
+        setValue(0)
+        editUserExperienceYears(id, "0")
+      }
       setIsEditing(false)
     }
   }

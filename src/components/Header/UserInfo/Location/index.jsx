@@ -13,12 +13,15 @@ import './location.scss'
 
 const Location = ({userLocation, editUserLocation}) => {
 
-
   const [value, onInput, isEditing, setIsEditing, isError, clearValue, setValue] = useInput({inputString: userLocation})
 
-  const onKeyDown = (event) => {
-    if (event.key === 'Enter' || event.type === 'blur' && !isError) {
-      editUserLocation(value)
+  const onKeyDown = (e) => {
+    if (e.key === 'Enter' || e.type === 'blur') {
+      if(!isError){
+        editUserLocation(value)
+      } else {
+        setValue(userLocation)
+      }
       setIsEditing(false)
     }
   }

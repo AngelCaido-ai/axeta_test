@@ -1,14 +1,13 @@
 import {useEffect, useState} from "react";
+import {RegExpValidationString} from "../utils/RegExpValidation";
 
-export const useInput = ({inputString = ""}) => {
+export const useInput = ({inputString = "", type =  "string"}) => {
   const [value, setValue] = useState(inputString)
   const [isError, setIsError] = useState(false)
   const [isEditing, setIsEditing] = useState(false)
 
   useEffect(() => {
-    if (value === "") {
-      setIsError(true)
-    }
+      RegExpValidationString(value) ? setIsError(true) : setIsError(false)
   }, [value])
 
   const clearValue = () => {
@@ -17,14 +16,6 @@ export const useInput = ({inputString = ""}) => {
 
   const onInput = (event) => {
     let inputValue = event.target.value
-
-    const format = /[!@#$%^&*()_+\-=\[\]{};':"\\|.<>\/?]+/;
-    if (format.test(inputValue) || inputValue === '') {
-      setIsError(true)
-    } else {
-      setIsError(false)
-    }
-
     setValue(inputValue)
   }
 

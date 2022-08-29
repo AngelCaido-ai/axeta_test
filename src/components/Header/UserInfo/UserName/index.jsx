@@ -9,11 +9,15 @@ import './userName.scss'
 
 const UserName = ({userName, editUserName}) => {
 
-  const [value, onInput, isEditing, setIsEditing, isError] = useInput({inputString: userName});
+  const [value, onInput, isEditing, setIsEditing, isError, clearValue, setValue] = useInput({inputString: userName});
 
   const handleName = (e) => {
-    if ((e.key === 'Enter' || e.type === 'blur') && !isError) {
-      editUserName(value)
+    if ((e.key === 'Enter' || e.type === 'blur')) {
+      if(!isError){
+        editUserName(value)
+      } else {
+        setValue(userName)
+      }
       setIsEditing(false)
     }
   }

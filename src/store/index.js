@@ -15,16 +15,14 @@ const rootReducer = combineReducers({
 });
 
 
-const persistedReducer = () => {
-  return persistReducer(persistConfig, rootReducer)
-}
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 
 let storeCreator
 
 if (window && window?.__REDUX_DEVTOOLS_EXTENSION__) {
   storeCreator = createStore(
-    persistedReducer(),
+    persistedReducer,
     compose(
       applyMiddleware(
         thunk
