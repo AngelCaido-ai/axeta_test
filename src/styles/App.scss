@@ -103,6 +103,7 @@ p {
     line-height: 23px;
     color: var(--blackColor);
     padding: 0 27px 0 0;
+    box-sizing: border-box;
 
     &.error {
       border-color: var(--linkColorHover);
