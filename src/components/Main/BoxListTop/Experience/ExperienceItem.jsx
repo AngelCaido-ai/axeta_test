@@ -7,7 +7,7 @@ const ExperienceItem = ({item, editUserExperienceYears}) => {
 
   const {id, name, years} = item;
 
-  const [value, onInput, isEditing, setIsEditing, isError, clearValue, setValue] = useInput({inputString: years})
+  const [value, onInput, isEditing, setIsEditing, isError, clearValue, setValue] = useInput({inputString: years, type: 'number'})
 
   const editExperienceYear = (e) => {
     if (e.key === 'Enter' || e.type === 'blur') {
@@ -32,7 +32,7 @@ const ExperienceItem = ({item, editUserExperienceYears}) => {
           <input
             className="experienceItem"
             type="number"
-            value={value.replace(/^0+/, '')}
+            value={value}
             onChange={onInput}
             onKeyDown={editExperienceYear}
             onBlur={editExperienceYear}
