@@ -33,7 +33,7 @@ if (window && window?.__REDUX_DEVTOOLS_EXTENSION__) {
   );
 } else {
   storeCreator = createStore(
-    persistReducer(),
+    persistedReducer,
     compose(
       applyMiddleware(
         thunk
