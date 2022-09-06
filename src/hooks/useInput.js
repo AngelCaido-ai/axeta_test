@@ -8,7 +8,7 @@ export const useInput = ({inputString = "", type = "string"}) => {
 
   useEffect(() => {
     if(type === 'string'){
-      RegExpValidationString(value) ? setIsError(true) : setIsError(false)
+      setIsError(RegExpValidationString(value))
     } else if(type === 'number'){
       Number(value) > 99 && setValue("99")
     }
